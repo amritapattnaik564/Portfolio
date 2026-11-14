@@ -127,7 +127,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </p>
 
           {/* Social Links */}
-          <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-2.5 mb-6">
             <a 
               href={`mailto:${email}`} 
               className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-primary hover:border-primary hover:shadow-glow-primary transition-all duration-300"
@@ -144,31 +144,34 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <FaLinkedin className="w-4 h-4" />
             </a>
-            {/*
-            <a 
-              href={github} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-9 h-9 rounded-full bg-slate-200 border border-slate-300 dark:bg-white/5 dark:border-white/5 flex items-center justify-center text-slate-600 dark:text-textSecondary hover:text-primary dark:hover:text-primary hover:border-primary hover:shadow-glow-primary transition-all duration-300"
-              title="GitHub"
-            >
-              <FaGithub className="w-4 h-4" />
-            </a>
-            <a 
-              href={whatsapp} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-9 h-9 rounded-full bg-slate-200 border border-slate-300 dark:bg-white/5 dark:border-white/5 flex items-center justify-center text-slate-600 dark:text-textSecondary hover:text-accent dark:hover:text-accent hover:border-accent hover:shadow-glow-accent transition-all duration-300"
-              title="WhatsApp"
-            >
-              <FaWhatsapp className="w-4 h-4" />
-            </a>
-            */}
+            {github && (
+              <a 
+                href={github} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-primary hover:border-primary hover:shadow-glow-primary transition-all duration-300"
+                title="GitHub"
+              >
+                <FaGithub className="w-4 h-4" />
+              </a>
+            )}
+            {whatsapp && (
+              <a 
+                href={whatsapp} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent hover:shadow-glow-accent transition-all duration-300"
+                title="WhatsApp"
+              >
+                <FaWhatsapp className="w-4 h-4" />
+              </a>
+            )}
           </div>
 
           {/* Download Resume Button */}
           <a 
             href={resumeUrl}
+            download="Amrita_Pattnaik_Resume.pdf"
             className="w-full py-2.5 px-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary via-secondary to-accent hover:shadow-glow-secondary flex items-center justify-center gap-2 glow-button transition-all duration-300 hover:scale-[1.02]"
           >
             <Download className="w-4 h-4" />

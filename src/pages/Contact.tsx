@@ -183,24 +183,28 @@ export const Contact: React.FC = () => {
               >
                 <FaLinkedin className="w-5 h-5" />
               </a>
-              {/* <a 
-                href={github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all duration-300 hover-lift"
-                title="GitHub"
-              >
-                <FaGithub className="w-5 h-5" />
-              </a>
-              <a 
-                href={whatsapp} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-emerald-600 transition-all duration-300 hover-lift"
-                title="WhatsApp"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-              </a> */}
+              {github && (
+                <a 
+                  href={github} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-slate-800 transition-all duration-300 hover-lift"
+                  title="GitHub"
+                >
+                  <FaGithub className="w-5 h-5" />
+                </a>
+              )}
+              {whatsapp && (
+                <a 
+                  href={whatsapp} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-emerald-600 transition-all duration-300 hover-lift"
+                  title="WhatsApp"
+                >
+                  <FaWhatsapp className="w-5 h-5" />
+                </a>
+              )}
             </div>
           </motion.div>
         </div>

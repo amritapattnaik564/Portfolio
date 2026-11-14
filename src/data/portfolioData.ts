@@ -1,4 +1,9 @@
 // Strong data typing for portfolio settings
+import profileImg from '../assets/images/profile.jpg';
+import project1Img from '../assets/images/project1.png';
+import project2Img from '../assets/images/project2.png';
+import project3Img from '../assets/images/project3.png';
+import project4Img from '../assets/images/project4.png';
 
 export interface StatItem {
   value: string;
@@ -30,6 +35,13 @@ export interface ExperienceItem {
   duration: string;
   location: string;
   responsibilities: string[];
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  duration: string;
+  location: string;
 }
 
 export interface ProjectItem {
@@ -79,6 +91,7 @@ export interface PortfolioData {
     philosophy: string[];
     skillTags: string[];
   };
+  education: EducationItem[];
   skillset: SkillCategory[];
   expertise: ExpertiseItem[];
   experience: ExperienceItem[];
@@ -89,13 +102,13 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Amrita Pattnaik",
     role: "Frontend Developer | React & Angular",
-    avatar: "/src/assets/images/profile.jpg",
-    resumeUrl: "/Amrita_Pattnaik_ResumeII.pdf",
+    avatar: profileImg,
+    resumeUrl: "/Amrita_Pattnaik_Resume.pdf",
   },
   socialLinks: {
     email: "amritapattnaik564@gmail.com",
     linkedin: "https://www.linkedin.com/in/amrita-pattnaik-0828bb204",
-    github: "https://github.com/amritapattnaik",
+    github: "https://github.com/amritapattnaik564",
     phone: "+91 8114788416",
     whatsapp: "https://wa.me/918114788416"
   },
@@ -105,19 +118,20 @@ export const portfolioData: PortfolioData = {
     phone: "+91 8114788416",
     experience: "4+ Years",
     location: "Bhubaneswar, Odisha, India",
-    company: "Nirmalya Labs Pvt Ltd"
+    company: "Nirmalya Labs Private Limited"
   },
   hero: {
     title: "Amrita Pattnaik",
     subtitles: [
       "Frontend Developer",
-      "React & Angular Developer",
-      "UI/UX Implementation Specialist"
+      "UI Developer",
+      "React.js & Next.js Specialist",
+      "Angular Developer"
     ],
-    description: "Frontend Developer with 4+ years of experience building scalable, responsive, and high-performance web applications using React, Angular, TypeScript, JavaScript, and modern frontend technologies. Passionate about creating reusable UI architectures, performance optimization, and delivering exceptional user experiences.",
+    description: "Frontend & UI Developer with 4+ years of professional experience building scalable, responsive, and component-based web applications using React.js, Next.js, Angular, TypeScript, JavaScript, and Tailwind CSS. Specialized in designing modular architectures, optimizing performance, and crafting clean, accessible user experiences.",
     stats: [
       { value: "4+ Years", label: "Experience" },
-      { value: "3+", label: "Enterprise Projects" },
+      { value: "4", label: "Enterprise Projects" },
       { value: "100%", label: "Responsive UI" }
     ],
     floatingBadges: [
@@ -127,141 +141,163 @@ export const portfolioData: PortfolioData = {
   about: {
     title: "About Me",
     philosophy: [
-      "Frontend Developer with 4+ years of experience in building scalable, responsive, and high-performance web applications.",
-      "Specialized in React, Angular, TypeScript, JavaScript, and modern frontend architectures. Passionate about reusable components, clean code practices, performance optimization, and seamless user experiences.",
-      "Experienced in collaborating with cross-functional teams including UI/UX designers, backend developers, and QA engineers within Agile environments. Continuously focused on learning modern technologies and delivering production-ready applications."
+      "Frontend Developer with 4+ years of hands-on experience in building scalable, responsive, and component-based web applications for Learning Management Systems (LMS), E-Commerce, and Content Management platforms.",
+      "Specialized in React.js, Next.js, Angular (12+), TypeScript, JavaScript (ES6+), and modern UI frameworks like Tailwind CSS and Bootstrap. Passionate about reusable component architectures, dynamic form validation, reactive state management (RxJS, Context API), and performance optimization.",
+      "Experienced in collaborating closely with cross-functional Agile/Scrum teams including UI/UX designers, backend developers (Spring Boot REST APIs), and QA engineers to deliver robust, production-ready software solutions."
     ],
     skillTags: [
-      "React.js", "Angular 12+", "TypeScript", "JavaScript ES6+", "RxJS", "NgRx", "REST APIs",
-      "Responsive Design", "Tailwind CSS", "Bootstrap", "Git", "Jira", "Bitbucket", "Agile"
+      "React.js", "Next.js", "Angular 12+", "TypeScript", "JavaScript (ES6+)", "RxJS", "Tailwind CSS",
+      "Bootstrap", "HTML5", "CSS3", "REST APIs", "Git", "Bitbucket", "Postman", "Jira", "Agile Methodology"
     ]
   },
+  education: [
+    {
+      degree: "Masters in Computer Applications (MCA)",
+      institution: "Trident Academy of Technology",
+      duration: "2020 – 2022",
+      location: "Bhubaneswar, Odisha"
+    },
+    {
+      degree: "B.Sc. in Computer Science",
+      institution: "NIIS Information Of Administration",
+      duration: "2017 – 2020",
+      location: "Bhubaneswar, Odisha"
+    }
+  ],
   skillset: [
     {
-      category: "Frontend",
+      category: "Frontend & UI",
       iconName: "Layout",
       skills: [
-        { name: "React.js", level: 90, type: "bar" },
-        { name: "Angular", level: 85, type: "bar" },
-        { name: "JavaScript", level: 92, type: "bar" },
-        { name: "TypeScript", level: 88, type: "bar" },
+        { name: "React.js", level: 92, type: "bar" },
+        { name: "Next.js", level: 85, type: "bar" },
+        { name: "Angular 12+", level: 88, type: "bar" },
+        { name: "TypeScript", level: 90, type: "bar" },
+        { name: "JavaScript (ES6+)", level: 92, type: "bar" },
         { name: "HTML5", level: 95, type: "bar" },
-        { name: "CSS3", level: 90, type: "bar" },
+        { name: "CSS3", level: 92, type: "bar" },
         { name: "Tailwind CSS", level: 90, type: "bar" },
-        { name: "Bootstrap", level: 85, type: "bar" }
+        { name: "Bootstrap", level: 88, type: "bar" }
       ]
     },
     {
-      category: "State Management",
+      category: "State Management & Architecture",
       iconName: "Cpu",
       skills: [
-        { name: "RxJS", level: 80, type: "circular" },
-        { name: "NgRx", level: 75, type: "circular" },
-        { name: "Context API", level: 90, type: "circular" },
-        { name: "React Hooks", level: 95, type: "circular" }
+        { name: "RxJS", level: 85, type: "circular" },
+        { name: "Context API", level: 92, type: "circular" },
+        { name: "React Hooks", level: 95, type: "circular" },
+        { name: "Modular Architecture", level: 90, type: "circular" }
       ]
     },
     {
-      category: "Tools",
+      category: "Developer Tools & Platforms",
       iconName: "Wrench",
       skills: [
-        { name: "VS Code", level: 95, type: "bar" },
-        { name: "Eclipse", level: 75, type: "bar" },
         { name: "Git", level: 90, type: "bar" },
-        { name: "Git Bash", level: 85, type: "bar" },
         { name: "Bitbucket", level: 88, type: "bar" },
+        { name: "Visual Studio / VS Code", level: 95, type: "bar" },
         { name: "Postman", level: 90, type: "bar" },
-        { name: "Jira", level: 85, type: "bar" }
+        { name: "Jira", level: 85, type: "bar" },
+        { name: "Git Bash", level: 85, type: "bar" },
+        { name: "Eclipse", level: 75, type: "bar" }
       ]
     },
     {
-      category: "Other Capabilities",
+      category: "Core Competencies",
       iconName: "Award",
       skills: [
-        { name: "REST APIs", level: 92, type: "circular" },
-        { name: "Agile Methodologies", level: 85, type: "circular" },
-        { name: "Leadership", level: 80, type: "circular" },
-        { name: "Team Collaboration", level: 90, type: "circular" },
-        { name: "Mentoring", level: 80, type: "circular" }
+        { name: "REST API Integration", level: 94, type: "circular" },
+        { name: "Responsive UI Design", level: 95, type: "circular" },
+        { name: "Performance Optimization", level: 88, type: "circular" },
+        { name: "Agile / Scrum", level: 90, type: "circular" }
       ]
     }
   ],
   expertise: [
     {
-      id: "react-dev",
-      title: "React Development",
-      description: "Building modern React applications using Hooks, Context API, reusable architecture, and responsive UI.",
+      id: "react-next-dev",
+      title: "React.js & Next.js Development",
+      description: "Building scalable, component-based SPAs and SSR web applications using modern React Hooks, Context API, Next.js routing, and clean UI architecture.",
       iconName: "ReactIcon"
     },
     {
       id: "angular-dev",
       title: "Angular Development",
-      description: "Developing scalable Angular applications using components, services, RxJS, and modular architecture.",
+      description: "Developing robust Angular enterprise applications using modular architecture, custom components, directives, services, and RxJS reactive streams.",
       iconName: "AngularIcon"
     },
     {
       id: "state-mgmt",
-      title: "State Management",
-      description: "Implementing RxJS, NgRx, and Context API for predictable application state handling.",
+      title: "Reactive State Management",
+      description: "Architecting predictable client-side state handling with RxJS observables, React Context API, custom hooks, and optimized event workflows.",
       iconName: "Cpu"
     },
     {
       id: "rest-api",
       title: "REST API Integration",
-      description: "Creating dynamic applications with secure and scalable API integrations.",
+      description: "Seamlessly connecting frontends with backend microservices (Spring Boot, Node) with robust error handling, caching, and data mapping.",
       iconName: "Link"
     },
     {
       id: "perf-opt",
-      title: "Performance Optimization",
-      description: "Lazy loading, code splitting, image optimization, and frontend performance improvements.",
+      title: "Performance & Optimization",
+      description: "Implementing lazy loading, route code splitting, asset compression, and bundle minimization for fast loading times and smooth rendering.",
       iconName: "Zap"
     },
     {
       id: "responsive-ui",
-      title: "Responsive UI Design",
-      description: "Pixel-perfect interfaces optimized across desktop, tablet, and mobile devices.",
+      title: "Responsive UI / UX Design",
+      description: "Designing pixel-perfect, mobile-first responsive interfaces compatible across all modern desktop, tablet, and mobile browsers.",
       iconName: "Monitor"
     }
   ],
   experience: [
     {
       company: "Nirmalya Labs Private Limited",
-      role: "Software Development Engineer II",
+      role: "Software Development Engineer II (SDE – II)",
       duration: "Jan 2022 - Present",
-      location: "Bhubaneswar, Odisha, India",
+      location: "Bhubaneswar, Odisha",
       responsibilities: [
-        "Developed scalable React and Angular applications.",
-        "Built reusable component architectures.",
-        "Implemented lazy loading and performance optimizations.",
-        "Integrated REST APIs for dynamic user experiences.",
-        "Collaborated with designers, backend developers, and QA teams.",
-        "Worked in Agile/Scrum environment."
+        "4+ years of frontend engineering experience delivering scalable, responsive, and component-based web applications using React.js, Next.js, Angular, TypeScript, JavaScript, HTML5, CSS3, and Tailwind CSS.",
+        "Developed and maintained enterprise-grade web applications for Learning Management Systems (LMS), E-Commerce, and Content Management platforms.",
+        "Built reusable UI component libraries, implemented routing, dynamic form validations, and state management (RxJS, Context API) to improve application maintainability and user experience.",
+        "Optimized frontend performance through route-level code splitting, lazy loading, and image compression for sub-second page loads.",
+        "Integrated RESTful APIs connecting to Spring Boot backends to power dynamic, data-driven business processes.",
+        "Participated in end-to-end feature development, bug fixing, code reviews, and production support activities within Agile/Scrum sprints."
       ]
     }
   ],
   projects: [
     {
-      title: "Ducis Group",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      description: "Modern e-learning platform featuring authentication, course management, and mock test modules with responsive design and optimized performance.",
-      image: "/src/assets/images/project1.png",
+      title: "Ducis Group (LMS & E-Learning Platform)",
+      tech: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "REST APIs"],
+      description: "Enterprise Learning Management System enabling course discovery, online purchases, video streaming, interactive assessments, and certification workflows. Built with reusable modular components, dynamic client-side form validation, lazy loading, and code splitting.",
+      image: project1Img,
       liveLink: "#",
       githubLink: "#"
     },
     {
       title: "Game Centric",
-      tech: ["Angular", "RxJS", "Bootstrap", "REST APIs"],
-      description: "Interactive gaming platform with reusable components, responsive design, and optimized performance.",
-      image: "/src/assets/images/project2.png",
+      tech: ["Angular", "HTML5", "CSS3", "Bootstrap", "JavaScript", "RxJS", "REST APIs"],
+      description: "Interactive gaming platform designed with high-performance responsive UI, modular component architecture, dynamic state management via RxJS, and optimized asset delivery.",
+      image: project2Img,
       liveLink: "#",
       githubLink: "#"
     },
     {
       title: "Prameya News",
-      tech: ["Angular", "Bootstrap", "JavaScript", "REST APIs"],
-      description: "Responsive news portal providing real-time updates, breaking news integration, and dynamic content rendering.",
-      image: "/src/assets/images/project3.png",
+      tech: ["Angular", "HTML5", "CSS3", "Bootstrap", "JavaScript", "RxJS", "REST APIs"],
+      description: "High-traffic responsive news portal delivering real-time breaking news updates, political and weather feeds, with lazy loading, image compression, and cross-browser compatibility.",
+      image: project3Img,
+      liveLink: "#",
+      githubLink: "#"
+    },
+    {
+      title: "Nirmalya Enterprise Resource Planning (NERP)",
+      tech: ["HTML5", "CSS3", "JavaScript", "jQuery", "REST APIs", "Spring Boot"],
+      description: "Comprehensive enterprise resource planning (ERP) system handling critical business processes, interactive data tables, and dynamic front-end components integrated with Spring Boot RESTful APIs.",
+      image: project4Img,
       liveLink: "#",
       githubLink: "#"
     }

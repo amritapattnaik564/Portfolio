@@ -11,7 +11,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({ categoryData }) => {
   const { category, iconName, skills } = categoryData;
 
   // Resolve Lucide Icon dynamically
-  const IconComponent = (LucideIcons as any)[iconName] || LucideIcons.HelpCircle;
+  const IconComponent = (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[iconName] || LucideIcons.HelpCircle;
 
   return (
     <motion.div 

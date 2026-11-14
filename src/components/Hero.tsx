@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import heroIllustration from '../assets/images/hero-illustration.png';
 import { portfolioData } from '../data/portfolioData';
 import { 
   FaReact, 
@@ -30,7 +30,6 @@ const floatBadgeIcons: Record<string, React.ReactNode> = {
 };
 
 export const Hero: React.FC = () => {
-  const navigate = useNavigate();
   const { resumeUrl } = portfolioData.personalInfo;
   const { title, subtitles, description, stats } = portfolioData.hero;
 
@@ -42,18 +41,23 @@ export const Hero: React.FC = () => {
 
   useEffect(() => {
     const activeText = subtitles[subtitleIndex];
-    let typingSpeed = isDeleting ? 40 : 80;
 
     if (!isDeleting && charIndex === activeText.length) {
-      // Pause at full text
-      typingSpeed = 2000;
-      setIsDeleting(true);
-    } else if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
-      setSubtitleIndex((prev) => (prev + 1) % subtitles.length);
-      typingSpeed = 300;
+      const timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000);
+      return () => clearTimeout(timer);
     }
 
+    if (isDeleting && charIndex === 0) {
+      const timer = setTimeout(() => {
+        setIsDeleting(false);
+        setSubtitleIndex((prev) => (prev + 1) % subtitles.length);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+
+    const typingSpeed = isDeleting ? 40 : 80;
     const timer = setTimeout(() => {
       setCurrentSubtitle(
         isDeleting 
@@ -152,14 +156,20 @@ export const Hero: React.FC = () => {
         >
           <a 
             href={resumeUrl}
+            download="Amrita_Pattnaik_Resume.pdf"
             className="py-3 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary via-secondary to-accent hover:shadow-glow-secondary flex items-center gap-2 glow-button transition-all duration-300 hover:scale-[1.02]"
           >
             <Download className="w-4.5 h-4.5" />
             Download Resume
           </a>
           <button 
-            onClick={() => navigate('/contact')}
-            className="py-3 px-6 rounded-xl text-sm font-semibold text-white bg-slate-900 hover:bg-slate-850 hover:text-white border border-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2"
+            onClick={() => {
+              const el = document.getElementById('contact');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="py-3 px-6 rounded-xl text-sm font-semibold text-white bg-slate-900 hover:bg-slate-850 hover:text-white border border-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 cursor-pointer"
           >
             <Mail className="w-4.5 h-4.5 text-primary" />
             Get In Touch
@@ -180,7 +190,7 @@ export const Hero: React.FC = () => {
           {/* Central illustration image wrapper */}
           <div className="relative w-72 h-72 rounded-3xl overflow-hidden glass-card border border-white/10 dark:border-white/5 flex items-center justify-center shadow-2xl p-4">
             <img 
-              src="/src/assets/images/hero-illustration.png" 
+              src={heroIllustration} 
               alt="Developer Illustration" 
               className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(99,102,241,0.3)] animate-float"
             />

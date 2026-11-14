@@ -6,7 +6,8 @@ import {
   Phone, 
   MapPin, 
   Building2, 
-  Award 
+  Award,
+  GraduationCap
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import { SectionTitle } from '../components/SectionTitle';
@@ -129,44 +130,77 @@ export const About: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Right Column: Personal Details Card */}
+        {/* Right Column: Personal Details & Education */}
         <motion.div 
           variants={itemVariants}
-          className="lg:col-span-5 glass-card p-6 md:p-8 rounded-3xl relative overflow-hidden"
+          className="lg:col-span-5 flex flex-col gap-6"
         >
-          {/* Background subtle glowing ball */}
-          <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Personal Details Card */}
+          <div className="glass-card p-6 md:p-8 rounded-3xl relative overflow-hidden">
+            {/* Background subtle glowing ball */}
+            <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
-          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 relative">
-            <span className="h-6 w-1 bg-secondary rounded-full inline-block" />
-            Personal Details
-          </h3>
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 relative">
+              <span className="h-6 w-1 bg-secondary rounded-full inline-block" />
+              Personal Details
+            </h3>
 
-          <div className="space-y-4 relative z-10">
-            {detailsList.map((item, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center gap-4 p-3 rounded-2xl bg-white/5 dark:bg-slate-900/50 border border-white/5 hover:border-primary/20 transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  {item.icon}
+            <div className="space-y-4 relative z-10">
+              {detailsList.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="flex items-center gap-4 p-3 rounded-2xl bg-white/5 dark:bg-slate-900/50 border border-white/5 hover:border-primary/20 transition-all duration-300"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-xs text-textSecondary uppercase tracking-wider">{item.label}</p>
+                    {item.isLink ? (
+                      <a 
+                        href={item.href} 
+                        className="text-sm font-medium text-white hover:text-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-slate-900 dark:text-white">{item.value}</p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-textSecondary uppercase tracking-wider">{item.label}</p>
-                  {item.isLink ? (
-                    <a 
-                      href={item.href} 
-                      className="text-sm font-medium text-white hover:text-primary transition-colors"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-sm font-medium text-slate-900 dark:text-white">{item.value}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          {/* Education Card */}
+          {portfolioData.education && portfolioData.education.length > 0 && (
+            <div className="glass-card p-6 md:p-8 rounded-3xl relative overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-36 h-36 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 relative">
+                <span className="h-6 w-1 bg-primary rounded-full inline-block" />
+                Education
+              </h3>
+              <div className="space-y-4 relative z-10">
+                {portfolioData.education.map((edu, idx) => (
+                  <div key={idx} className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+                        <GraduationCap className="w-5 h-5" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="text-sm font-bold text-slate-900 dark:text-white">{edu.degree}</h4>
+                        <p className="text-xs font-semibold text-primary mt-0.5">{edu.institution}</p>
+                        <div className="flex items-center justify-between text-[11px] text-textSecondary mt-2">
+                          <span>{edu.duration}</span>
+                          <span>{edu.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </motion.div>
