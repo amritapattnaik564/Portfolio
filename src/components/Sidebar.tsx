@@ -11,7 +11,7 @@ import {
   Download,
   Flame
 } from 'lucide-react';
-import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import { portfolioData } from '../data/portfolioData';
 
 interface SidebarProps {
@@ -30,7 +30,7 @@ interface SidebarProps {
     activeSection
   }: SidebarProps) => {
   const { name, role, avatar, resumeUrl } = portfolioData.personalInfo;
-  const { github, linkedin, email, whatsapp } = portfolioData.socialLinks;
+  const { linkedin, email, whatsapp } = portfolioData.socialLinks;
 
   const menuItems = [
     { name: 'About', id: 'about', icon: <User className="w-5 h-5" /> },
@@ -142,7 +142,7 @@ interface SidebarProps {
             >
               <FaLinkedin className="w-4 h-4" />
             </a>
-            {github && (
+            {/* {github && (
               <a
                 href={github}
                 target="_blank"
@@ -152,7 +152,7 @@ interface SidebarProps {
               >
                 <FaGithub className="w-4 h-4" />
               </a>
-            )}
+            )} */}
             {whatsapp && (
               <a
                 href={whatsapp}
