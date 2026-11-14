@@ -1,10 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { SectionTitle } from '../components/SectionTitle';
 import { ExperienceCard } from '../components/ExperienceCard';
 
-export const Experience: React.FC = () => {
+export const Experience = () => {
   const experiences = portfolioData.experience;
 
   // Stagger configurations

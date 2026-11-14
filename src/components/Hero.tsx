@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail } from 'lucide-react';
-import heroIllustration from '../assets/images/hero-illustration.png';
 import { portfolioData } from '../data/portfolioData';
 import { 
   FaReact, 
@@ -17,7 +16,7 @@ import {
 } from 'react-icons/si';
 
 // Map icon names to dynamic brand badges
-const floatBadgeIcons: Record<string, React.ReactNode> = {
+const floatBadgeIcons: Record<string, ReactNode> = {
   React: <FaReact className="w-5 h-5 text-sky-400" />,
   Angular: <FaAngular className="w-5 h-5 text-red-500" />,
   JavaScript: <FaJs className="w-5 h-5 text-yellow-400" />,
@@ -29,7 +28,7 @@ const floatBadgeIcons: Record<string, React.ReactNode> = {
   NgRx: <div className="text-[10px] font-extrabold text-purple-400 font-mono">N</div>
 };
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
   const { resumeUrl } = portfolioData.personalInfo;
   const { title, subtitles, description, stats } = portfolioData.hero;
 
@@ -190,7 +189,7 @@ export const Hero: React.FC = () => {
           {/* Central illustration image wrapper */}
           <div className="relative w-72 h-72 rounded-3xl overflow-hidden glass-card border border-white/10 dark:border-white/5 flex items-center justify-center shadow-2xl p-4">
             <img 
-              src={heroIllustration} 
+              src="/images/hero-illustration.png" 
               alt="Developer Illustration" 
               className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(99,102,241,0.3)] animate-float"
             />
@@ -254,13 +253,13 @@ export const Hero: React.FC = () => {
 
 /* Sub-component: Floating Tech Badge */
 interface FloatingBadgeProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   className: string;
   delay?: number;
 }
 
-const FloatingBadge: React.FC<FloatingBadgeProps> = ({ icon, label, className, delay = 0 }) => {
+const FloatingBadge = ({ icon, label, className, delay = 0 }: FloatingBadgeProps) => {
   return (
     <motion.div
       initial={{ y: 0 }}

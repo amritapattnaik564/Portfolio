@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentType } from 'react';
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import type { SkillCategory, SkillItem } from '../data/portfolioData';
@@ -7,11 +7,11 @@ interface SkillCardProps {
   categoryData: SkillCategory;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({ categoryData }) => {
+export const SkillCard = ({ categoryData }: SkillCardProps) => {
   const { category, iconName, skills } = categoryData;
 
   // Resolve Lucide Icon dynamically
-  const IconComponent = (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[iconName] || LucideIcons.HelpCircle;
+  const IconComponent = (LucideIcons as unknown as Record<string, ComponentType<{ className?: string }>>)[iconName] || LucideIcons.HelpCircle;
 
   return (
     <motion.div 
@@ -56,7 +56,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({ categoryData }) => {
 };
 
 /* Sub-component: Linear Progress Bar */
-const LinearProgressBar: React.FC<{ skill: SkillItem }> = ({ skill }) => {
+const LinearProgressBar = ({ skill }: { skill: SkillItem }) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ const LinearProgressBar: React.FC<{ skill: SkillItem }> = ({ skill }) => {
 };
 
 /* Sub-component: Circular Progress Indicator */
-const CircularProgress: React.FC<{ skill: SkillItem }> = ({ skill }) => {
+const CircularProgress = ({ skill }: { skill: SkillItem }) => {
   const [progress, setProgress] = useState(0);
   const radius = 30;
   const strokeWidth = 4.5;

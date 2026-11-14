@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   User, 
   Cpu, 
@@ -9,8 +8,8 @@ import {
   X, 
   Sun, 
   Moon, 
-  Download,
-  Flame
+  Download, 
+  Flame 
 } from 'lucide-react';
 import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { portfolioData } from '../data/portfolioData';
@@ -23,13 +22,13 @@ interface SidebarProps {
   activeSection: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ 
+export const Sidebar = ({ 
   darkMode, 
   setDarkMode, 
   isOpen, 
   setIsOpen,
   activeSection
-}) => {
+}: SidebarProps) => {
   const { name, role, avatar, resumeUrl } = portfolioData.personalInfo;
   const { github, linkedin, email, whatsapp } = portfolioData.socialLinks;
 

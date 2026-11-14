@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import {
   Mail,
@@ -27,7 +27,7 @@ interface FormErrors {
   message?: string;
 }
 
-export const Contact: React.FC = () => {
+export const Contact = () => {
   const { email, phone, location } = portfolioData.personalDetails;
   const { github, linkedin, whatsapp } = portfolioData.socialLinks;
 
@@ -43,7 +43,7 @@ export const Contact: React.FC = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   // Form input changes handler
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     // Clear validation error when typing
@@ -91,7 +91,7 @@ export const Contact: React.FC = () => {
   };
 
   // Form submit handler
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 

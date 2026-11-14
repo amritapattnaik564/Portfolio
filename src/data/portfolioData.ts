@@ -1,9 +1,4 @@
 // Strong data typing for portfolio settings
-import profileImg from '../assets/images/profile.jpg';
-import project1Img from '../assets/images/project1.png';
-import project2Img from '../assets/images/project2.png';
-import project3Img from '../assets/images/project3.png';
-import project4Img from '../assets/images/project4.png';
 
 export interface StatItem {
   value: string;
@@ -102,7 +97,7 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Amrita Pattnaik",
     role: "Frontend Developer | React & Angular",
-    avatar: profileImg,
+    avatar: "/images/profile.jpg",
     resumeUrl: "/Amrita_Pattnaik_Resume.pdf",
   },
   socialLinks: {
@@ -273,7 +268,7 @@ export const portfolioData: PortfolioData = {
       title: "Ducis Group (LMS & E-Learning Platform)",
       tech: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "REST APIs"],
       description: "Enterprise Learning Management System enabling course discovery, online purchases, video streaming, interactive assessments, and certification workflows. Built with reusable modular components, dynamic client-side form validation, lazy loading, and code splitting.",
-      image: project1Img,
+      image: "/images/project1.png",
       liveLink: "#",
       githubLink: "#"
     },
@@ -281,7 +276,7 @@ export const portfolioData: PortfolioData = {
       title: "Game Centric",
       tech: ["Angular", "HTML5", "CSS3", "Bootstrap", "JavaScript", "RxJS", "REST APIs"],
       description: "Interactive gaming platform designed with high-performance responsive UI, modular component architecture, dynamic state management via RxJS, and optimized asset delivery.",
-      image: project2Img,
+      image: "/images/project2.png",
       liveLink: "#",
       githubLink: "#"
     },
@@ -289,7 +284,7 @@ export const portfolioData: PortfolioData = {
       title: "Prameya News",
       tech: ["Angular", "HTML5", "CSS3", "Bootstrap", "JavaScript", "RxJS", "REST APIs"],
       description: "High-traffic responsive news portal delivering real-time breaking news updates, political and weather feeds, with lazy loading, image compression, and cross-browser compatibility.",
-      image: project3Img,
+      image: "/images/project3.png",
       liveLink: "#",
       githubLink: "#"
     },
@@ -297,7 +292,7 @@ export const portfolioData: PortfolioData = {
       title: "Nirmalya Enterprise Resource Planning (NERP)",
       tech: ["HTML5", "CSS3", "JavaScript", "jQuery", "REST APIs", "Spring Boot"],
       description: "Comprehensive enterprise resource planning (ERP) system handling critical business processes, interactive data tables, and dynamic front-end components integrated with Spring Boot RESTful APIs.",
-      image: project4Img,
+      image: "/images/project4.png",
       liveLink: "#",
       githubLink: "#"
     }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Briefcase } from 'lucide-react';
 import type { ExperienceItem } from '../data/portfolioData';
@@ -8,7 +7,7 @@ interface ExperienceCardProps {
   index: number;
 }
 
-export const ExperienceCard: React.FC<ExperienceCardProps> = ({ exp, index }) => {
+export const ExperienceCard = ({ exp, index }: ExperienceCardProps) => {
   return (
     <motion.div
       variants={{

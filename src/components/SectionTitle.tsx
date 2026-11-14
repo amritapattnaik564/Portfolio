@@ -1,16 +1,14 @@
-import React from 'react';
-
 interface SectionTitleProps {
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
 }
 
-export const SectionTitle: React.FC<SectionTitleProps> = ({ 
+export const SectionTitle = ({ 
   title, 
   subtitle, 
   align = 'center' 
-}) => {
+}: SectionTitleProps) => {
   const isCenter = align === 'center';
 
   return (

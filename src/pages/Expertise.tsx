@@ -1,10 +1,10 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Cpu, 
   Link, 
   Zap, 
-  Monitor, 
+  Monitor,
   HelpCircle 
 } from 'lucide-react';
 import { FaReact, FaAngular } from 'react-icons/fa';
@@ -12,7 +12,7 @@ import { portfolioData } from '../data/portfolioData';
 import { SectionTitle } from '../components/SectionTitle';
 
 // Dynamic Icon Map
-const iconMap: Record<string, React.ReactNode> = {
+const iconMap: Record<string, ReactNode> = {
   ReactIcon: <FaReact className="w-7 h-7 text-sky-400 group-hover:animate-[spin_15s_linear_infinite]" />,
   AngularIcon: <FaAngular className="w-7 h-7 text-red-500" />,
   Cpu: <Cpu className="w-7 h-7 text-secondary" />,
@@ -21,7 +21,7 @@ const iconMap: Record<string, React.ReactNode> = {
   Monitor: <Monitor className="w-7 h-7 text-emerald-400" />
 };
 
-export const Expertise: React.FC = () => {
+export const Expertise = () => {
   const expertiseList = portfolioData.expertise;
 
   // Stagger configurations

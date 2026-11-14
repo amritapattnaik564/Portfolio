@@ -1,11 +1,10 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface LoadingScreenProps {
   isLoading: boolean;
 }
 
-export const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
+export const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
   return (
     <AnimatePresence>
       {isLoading && (

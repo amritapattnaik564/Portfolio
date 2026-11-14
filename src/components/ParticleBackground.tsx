@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface ParticleBackgroundProps {
   darkMode: boolean;
@@ -14,7 +14,7 @@ interface Particle {
   decay: number;
 }
 
-export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => {
+export const ParticleBackground = ({ darkMode }: ParticleBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {

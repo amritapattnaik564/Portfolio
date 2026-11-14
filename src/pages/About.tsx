@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   User, 
@@ -13,7 +12,7 @@ import { portfolioData } from '../data/portfolioData';
 import { SectionTitle } from '../components/SectionTitle';
 import { Hero } from '../components/Hero';
 
-export const About: React.FC = () => {
+export const About = () => {
   const { philosophy, skillTags } = portfolioData.about;
   const { fullName, email, phone, experience, location, company } = portfolioData.personalDetails;
 

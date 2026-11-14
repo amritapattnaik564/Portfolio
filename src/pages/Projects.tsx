@@ -1,10 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { SectionTitle } from '../components/SectionTitle';
 import { ProjectCard } from '../components/ProjectCard';
 
-export const Projects: React.FC = () => {
+export const Projects = () => {
   const projects = portfolioData.projects;
 
   // Stagger configurations

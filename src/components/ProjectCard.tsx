@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
@@ -8,7 +7,7 @@ interface ProjectCardProps {
   project: ProjectItem;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <motion.div
       variants={{

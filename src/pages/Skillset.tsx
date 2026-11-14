@@ -1,10 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { SectionTitle } from '../components/SectionTitle';
 import { SkillCard } from '../components/SkillCard';
 
-export const Skillset: React.FC = () => {
+export const Skillset = () => {
   const skillset = portfolioData.skillset;
 
   // Stagger entry configurations

@@ -1,14 +1,14 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 interface ContactCardProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   value: string;
   link: string;
 }
 
-export const ContactCard: React.FC<ContactCardProps> = ({ icon, title, value, link }) => {
+export const ContactCard = ({ icon, title, value, link }: ContactCardProps) => {
   return (
     <motion.a
       href={link}
