@@ -22,13 +22,13 @@ interface SidebarProps {
   activeSection: string;
 }
 
-  export const Sidebar = ({
-    darkMode,
-    setDarkMode,
-    isOpen,
-    setIsOpen,
-    activeSection
-  }: SidebarProps) => {
+export const Sidebar = ({
+  darkMode,
+  setDarkMode,
+  isOpen,
+  setIsOpen,
+  activeSection
+}: SidebarProps) => {
   const { name, role, avatar, resumeUrl } = portfolioData.personalInfo;
   const { linkedin, email, whatsapp } = portfolioData.socialLinks;
 
@@ -142,7 +142,7 @@ interface SidebarProps {
             >
               <FaLinkedin className="w-4 h-4" />
             </a>
-            {/* {github && (
+              {/* {github && (
               <a
                 href={github}
                 target="_blank"
@@ -184,8 +184,8 @@ interface SidebarProps {
               key={item.name}
               onClick={() => handleScrollTo(item.id)}
               className={`flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover-lift w-full text-left ${activeSection === item.id
-                  ? 'bg-gradient-to-r from-primary/25 to-secondary/25 border border-primary/40 text-white shadow-glow-primary'
-                  : 'text-textSecondary hover:text-white hover:bg-white/5 border border-transparent'
+                ? 'bg-gradient-to-r from-primary/25 to-secondary/25 border border-primary/40 text-white shadow-glow-primary'
+                : 'text-textSecondary hover:text-white hover:bg-white/5 border border-transparent'
                 }`}
             >
               {item.icon}
