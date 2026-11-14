@@ -4,11 +4,11 @@ interface SectionTitleProps {
   align?: 'left' | 'center';
 }
 
-export const SectionTitle = ({ 
-  title, 
-  subtitle, 
-  align = 'center' 
-}: SectionTitleProps) => {
+  export const SectionTitle = ({
+    title,
+    subtitle,
+    align = 'center'
+  }: SectionTitleProps) => {
   const isCenter = align === 'center';
 
   return (
@@ -18,7 +18,7 @@ export const SectionTitle = ({
         {/* Underline decorative bar */}
         <div className={`h-1.5 w-16 bg-gradient-to-r from-primary to-accent rounded-full mt-2 ${isCenter ? 'mx-auto' : ''}`} />
       </h2>
-      
+
       {subtitle && (
         <p className="text-sm sm:text-base text-textSecondary max-w-2xl font-light leading-relaxed mt-2">
           {subtitle}

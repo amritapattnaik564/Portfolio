@@ -1,15 +1,15 @@
-import { 
-  User, 
-  Cpu, 
-  Briefcase, 
-  FolderGit2, 
-  Mail, 
-  Menu, 
-  X, 
-  Sun, 
-  Moon, 
-  Download, 
-  Flame 
+import {
+  User,
+  Cpu,
+  Briefcase,
+  FolderGit2,
+  Mail,
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Download,
+  Flame
 } from 'lucide-react';
 import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { portfolioData } from '../data/portfolioData';
@@ -22,13 +22,13 @@ interface SidebarProps {
   activeSection: string;
 }
 
-export const Sidebar = ({ 
-  darkMode, 
-  setDarkMode, 
-  isOpen, 
-  setIsOpen,
-  activeSection
-}: SidebarProps) => {
+  export const Sidebar = ({
+    darkMode,
+    setDarkMode,
+    isOpen,
+    setIsOpen,
+    activeSection
+  }: SidebarProps) => {
   const { name, role, avatar, resumeUrl } = portfolioData.personalInfo;
   const { github, linkedin, email, whatsapp } = portfolioData.socialLinks;
 
@@ -64,14 +64,14 @@ export const Sidebar = ({
       <header className="lg:hidden fixed top-0 left-0 right-0 h-16 glass-card z-40 px-6 flex items-center justify-between border-b border-white/10 dark:border-white/5">
         <span className="font-bold text-xl tracking-wider gradient-heading">{name}</span>
         <div className="flex items-center gap-4">
-          <button 
+          <button
             onClick={() => setDarkMode(!darkMode)}
             className="p-2 rounded-full hover:bg-white/10 dark:hover:bg-slate-800 text-textSecondary hover:text-white transition-all duration-200"
             aria-label="Toggle theme"
           >
             {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-indigo-400" />}
           </button>
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-lg text-textSecondary hover:text-white hover:bg-white/10 dark:hover:bg-slate-800 transition-colors"
             aria-label="Toggle menu"
@@ -83,22 +83,21 @@ export const Sidebar = ({
 
       {/* Drawer Overlay for Mobile */}
       {isOpen && (
-        <div 
+        <div
           className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Main Sidebar Container */}
-      <aside 
-        className={`fixed top-0 bottom-0 left-0 w-72 z-50 lg:z-30 glass-card border-r border-white/10 dark:border-white/5 flex flex-col justify-between py-8 px-6 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+      <aside
+        className={`fixed top-0 bottom-0 left-0 w-72 z-50 lg:z-30 glass-card border-r border-white/10 dark:border-white/5 flex flex-col justify-between py-8 px-6 transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         {/* Top Content: Profile Info */}
         <div className="flex flex-col items-center text-center">
           {/* Close button for Mobile Menu inside Drawer */}
-          <button 
+          <button
             onClick={() => setIsOpen(false)}
             className="lg:hidden absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 dark:hover:bg-slate-800 text-textSecondary hover:text-white"
             aria-label="Close menu"
@@ -110,9 +109,9 @@ export const Sidebar = ({
           <div className="relative group mb-4">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
             <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-primary/50 bg-slate-900">
-              <img 
-                src={avatar} 
-                alt={name} 
+              <img
+                src={avatar}
+                alt={name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
             </div>
@@ -127,27 +126,27 @@ export const Sidebar = ({
 
           {/* Social Links */}
           <div className="flex items-center justify-center gap-2.5 mb-6">
-            <a 
-              href={`mailto:${email}`} 
+            <a
+              href={`mailto:${email}`}
               className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-primary hover:border-primary hover:shadow-glow-primary transition-all duration-300"
               title="Email"
             >
               <Mail className="w-4 h-4" />
             </a>
-            <a 
-              href={linkedin} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-primary hover:border-primary hover:shadow-glow-primary transition-all duration-300"
               title="LinkedIn"
             >
               <FaLinkedin className="w-4 h-4" />
             </a>
             {github && (
-              <a 
-                href={github} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-primary hover:border-primary hover:shadow-glow-primary transition-all duration-300"
                 title="GitHub"
               >
@@ -155,10 +154,10 @@ export const Sidebar = ({
               </a>
             )}
             {whatsapp && (
-              <a 
-                href={whatsapp} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 dark:border-white/5 flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent hover:shadow-glow-accent transition-all duration-300"
                 title="WhatsApp"
               >
@@ -168,7 +167,7 @@ export const Sidebar = ({
           </div>
 
           {/* Download Resume Button */}
-          <a 
+          <a
             href={resumeUrl}
             download="Amrita_Pattnaik_Resume.pdf"
             className="w-full py-2.5 px-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary via-secondary to-accent hover:shadow-glow-secondary flex items-center justify-center gap-2 glow-button transition-all duration-300 hover:scale-[1.02]"
@@ -184,11 +183,10 @@ export const Sidebar = ({
             <button
               key={item.name}
               onClick={() => handleScrollTo(item.id)}
-              className={`flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover-lift w-full text-left ${
-                activeSection === item.id 
-                  ? 'bg-gradient-to-r from-primary/25 to-secondary/25 border border-primary/40 text-white shadow-glow-primary' 
+              className={`flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover-lift w-full text-left ${activeSection === item.id
+                  ? 'bg-gradient-to-r from-primary/25 to-secondary/25 border border-primary/40 text-white shadow-glow-primary'
                   : 'text-textSecondary hover:text-white hover:bg-white/5 border border-transparent'
-              }`}
+                }`}
             >
               {item.icon}
               <span>{item.name}</span>
@@ -201,7 +199,7 @@ export const Sidebar = ({
           <span className="text-xs text-textSecondary">
             © {new Date().getFullYear()} {name.split(' ')[0]}
           </span>
-          <button 
+          <button
             onClick={() => setDarkMode(!darkMode)}
             className="hidden lg:flex p-2 rounded-xl bg-white/5 border border-white/10 dark:border-white/5 text-textSecondary hover:text-white hover:border-primary transition-all duration-300"
             aria-label="Toggle theme"
